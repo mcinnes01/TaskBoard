@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Core;
 using TaskBoard.Core.Data.Contracts;
+using TaskBoard.PostgreSql.Data.Contracts;
 
 namespace TaskBoard.Core.Data
 {
@@ -8,8 +9,6 @@ namespace TaskBoard.Core.Data
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<NpgsqlConnectionFactory>().As<IConnectionFactory>();
-
             builder.RegisterType<IUserRepository>()
                    .WithParameters(new Parameter[]
                    {

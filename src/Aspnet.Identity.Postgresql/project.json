@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-*",
-  "description": "TaskBoard.Core Class Library",
+  "description": "Aspnet.Identity.Postgresql Class Library",
   "authors": [ "amcinnes" ],
   "tags": [ "" ],
   "projectUrl": "",
@@ -8,10 +8,8 @@
   "frameworks": {
     "net451": {
       "dependencies": {
-        "EntityFramework7.Npgsql.Design": "3.1.0-rc1-5",
-        "log4net": "2.0.5",
-        "Microsoft.AspNet.Identity.Core": "2.2.1",
-        "ServiceStack.Text": "4.0.52"
+        "EntityFramework7.Npgsql": "3.1.0-rc1-3",
+        "Microsoft.AspNet.Identity.Core": "2.2.1"
       }
     },
     "dotnet5.4": {
@@ -25,10 +23,6 @@
     }
   },
   "dependencies": {
-    "Autofac": "4.0.0-rc1-177",
-    "Dapper": "1.50.0-beta7",
-    "JetBrains.Annotations": "10.1.1-eap",
-    "TaskBoard.Extensions": "1.0.0-*",
     "TaskBoard.PostgreSql": "1.0.0-*"
   }
 }

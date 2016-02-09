@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Data;
 using System.Threading.Tasks;
-using TaskBoard.Core.Data.Contracts;
+using TaskBoard.PostgreSql.Data.Contracts;
 
-namespace TaskBoard.Core.Data
+namespace TaskBoard.PostgreSql.Data
 {
     public abstract class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId> where TEntity : class, new()
     {
         private readonly IConnectionFactory _connectionFactory;
         private readonly string _connectionStringName;
 
-        protected RepositoryBase(IConnectionFactory connectionFactory, string connectionStringName)
+        public RepositoryBase(IConnectionFactory connectionFactory, string connectionStringName)
         {
             if (connectionFactory == null) throw new ArgumentNullException("connectionFactory");
             if (string.IsNullOrEmpty(connectionStringName)) throw new ArgumentNullException("connectionStringName");
@@ -19,7 +19,7 @@ namespace TaskBoard.Core.Data
             _connectionStringName = connectionStringName;
         }
 
-        protected IDbConnection OpenConnection()
+        public IDbConnection OpenConnection()
         {
             var connection = _connectionFactory.Create(_connectionStringName);
             connection.Open();

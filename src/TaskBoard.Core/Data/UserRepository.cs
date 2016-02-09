@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using TaskBoard.Core.Data.Contracts;
 using TaskBoard.Core.Data.DTOs;
-using TaskBoard.Core.Extensions;
+using TaskBoard.Extensions;
+using TaskBoard.PostgreSql.Data;
+using TaskBoard.PostgreSql.Data.Contracts;
 
 namespace TaskBoard.Core.Data
 {
@@ -31,7 +33,7 @@ namespace TaskBoard.Core.Data
             using (var conn = OpenConnection())
             {
                 var result = await conn.QueryAsync<UserRecord>(SQL.GetUser, new { username });
-                return result.ToList();
+                return result.FirstOrDefault();
             }
         }
     }

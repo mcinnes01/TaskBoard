@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
 
-namespace TaskBoard.Core.Data
+namespace TaskBoard.PostgreSql.Data.Contracts
 {
     public interface IConnectionFactory
     {
